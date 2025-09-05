@@ -178,11 +178,10 @@ def render_cliente(cliente, clientes_ref):
         else:
             c2.warning(f"Resta: {format_currency(restante)}")
 
-# El valor para la BARRA se limita a 100, pero el TEXTO muestra el porcentaje real.
-progress_value = min(100, int(porcentaje_pagado))
-# El valor para la BARRA se limita a 100, pero el TEXTO muestra el porcentaje real.
-progress_value = min(100, int(porcentaje_pagado))
-st.progress(progress_value, text=f"{int(porcentaje_pagado)}% Pagado ({format_currency(total_abonado)} de {format_currency(valor_total)})")
+        # El valor para la BARRA se limita a 100, pero el TEXTO muestra el porcentaje real.
+        progress_value = min(100, int(porcentaje_pagado))
+        st.progress(progress_value, text=f"{int(porcentaje_pagado)}% Pagado ({format_currency(total_abonado)} de {format_currency(costo_total)})")
+
         with st.expander("Gestionar Abonos y Acciones"):
             st.write("**Historial de Abonos:**")
             if not abonos:
